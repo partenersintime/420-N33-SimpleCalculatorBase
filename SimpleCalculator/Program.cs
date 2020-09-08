@@ -20,9 +20,30 @@ namespace SimpleCalculator
                 //Class to perform actual calculations
                 CalculatorEngine calculatorEngine = new CalculatorEngine();
 
-                double firstNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
-                double secondNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
+                // While loops to prevent user from continuing if invalid input is entered - Justin. M
+                bool success = double.TryParse(Console.ReadLine(), out double firstNumber);
+                while(success == false)
+                {
+                    Console.WriteLine("Detected non numeric input. Please try again by entering a number.");
+                    success = double.TryParse(Console.ReadLine(), out firstNumber);
+                }
+
+                bool success2 = double.TryParse(Console.ReadLine(), out double secondNumber);
+                while(success2 == false)
+                {
+                    Console.WriteLine("Detected non numeric input. Please try again by entering a number.");
+                    success2 = double.TryParse(Console.ReadLine(), out secondNumber);
+                }
+
                 string operation = Console.ReadLine();
+                 while(operation != "+" && operation != "-" && operation != "*" && operation != "/" && 
+                    operation != "add" && operation != "subtract" && operation != "multiply" && operation != "divide")
+                {
+                    Console.WriteLine("Specified operation is not recognized. " +
+                        "Please try again by entering + or add, - or subtract, * or multiply and / or divide.");
+                    operation = Console.ReadLine();
+                }
+
 
                 double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
 
