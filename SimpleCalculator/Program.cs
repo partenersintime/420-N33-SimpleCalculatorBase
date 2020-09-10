@@ -47,12 +47,36 @@ namespace SimpleCalculator
 
                 double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
 
-                Console.WriteLine(result);
+                // If statements and String.Format to display the results of the calculator in a readable format - Justin. M
+
+                if(operation == "add" | operation == "+")
+                {
+                    operation = "plus";
+                }
+                if(operation == "subtract" | operation == "-")
+                {
+                    operation = "minus";
+                }
+                if (operation == "multiply" | operation == "*")
+                {
+                    operation = "multiplied by";
+                }
+                if(operation == "divide" | operation == "/")
+                {
+                    operation = "divided by";
+                }
+
+                String g = String.Format("The value of {0} {1} {2} is equal to {3,0:F2}", firstNumber, operation, secondNumber, result);
+
+                Console.WriteLine(g);
 
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+
+        
+
     }
 }
