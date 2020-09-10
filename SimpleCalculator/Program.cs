@@ -19,22 +19,22 @@ namespace SimpleCalculator
 
                 // While loops to prevent user from continuing if invalid input is entered - Justin. M
                 bool success = double.TryParse(Console.ReadLine(), out double firstNumber);
-                while(success == false)
+                while (success == false)
                 {
                     Console.WriteLine("Detected non numeric input. Please try again by entering a number.");
                     success = double.TryParse(Console.ReadLine(), out firstNumber);
                 }
 
                 bool success2 = double.TryParse(Console.ReadLine(), out double secondNumber);
-                while(success2 == false)
+                while (success2 == false)
                 {
                     Console.WriteLine("Detected non numeric input. Please try again by entering a number.");
                     success2 = double.TryParse(Console.ReadLine(), out secondNumber);
                 }
 
                 string operation = Console.ReadLine();
-                 while(operation != "+" && operation != "-" && operation != "*" && operation != "/" && 
-                    operation != "add" && operation != "subtract" && operation != "multiply" && operation != "divide")
+                while (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "^" &&
+                   operation != "add" && operation != "subtract" && operation != "multiply" && operation != "divide" && operation != "exponent")
                 {
                     Console.WriteLine("Specified operation is not recognized. " +
                         "Please try again by entering + or add, - or subtract, * or multiply and / or divide.");
@@ -51,7 +51,7 @@ namespace SimpleCalculator
                 {
                     operation = "plus";
                 }
-                if(operation == "subtract" | operation == "-")
+                if (operation == "subtract" | operation == "-")
                 {
                     operation = "minus";
                 }
@@ -59,9 +59,13 @@ namespace SimpleCalculator
                 {
                     operation = "multiplied by";
                 }
-                if(operation == "divide" | operation == "/")
+                if (operation == "divide" | operation == "/")
                 {
                     operation = "divided by";
+                }
+                if (operation == "exponent" | operation == "^") // Added exponent function - Justin A.
+                {
+                    operation = "to the power of";
                 }
 
                 String g = String.Format("The value of {0} {1} {2} is equal to {3,0:F2}", firstNumber, operation, secondNumber, result);
