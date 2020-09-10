@@ -14,6 +14,7 @@ namespace SimpleCalculator
         {
             try
             {
+                Console.WriteLine("Welcome to the CMD based calculator. Start by inputting two numbers (1 per line, enter to finalize) followed by an operation (+,-,*,/,^)."); // Added welcome message for ease of use. - Justin A.
                 //Class to convert user input
                 InputConverter inputConverter = new InputConverter();
 
@@ -37,7 +38,7 @@ namespace SimpleCalculator
                    operation != "add" && operation != "subtract" && operation != "multiply" && operation != "divide" && operation != "exponent")
                 {
                     Console.WriteLine("Specified operation is not recognized. " +
-                        "Please try again by entering + or add, - or subtract, * or multiply and / or divide.");
+                        "Please try again by entering + or add, - or subtract, * or multiply, / or divide, ^ or exponent.");
                     operation = Console.ReadLine();
                 }
 
