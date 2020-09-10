@@ -17,9 +17,6 @@ namespace SimpleCalculator
                 //Class to convert user input
                 InputConverter inputConverter = new InputConverter();
 
-                //Class to perform actual calculations
-                CalculatorEngine calculatorEngine = new CalculatorEngine();
-
                 // While loops to prevent user from continuing if invalid input is entered - Justin. M
                 bool success = double.TryParse(Console.ReadLine(), out double firstNumber);
                 while(success == false)
@@ -44,12 +41,13 @@ namespace SimpleCalculator
                     operation = Console.ReadLine();
                 }
 
+                // Statement that calls the CalcEngine library as well as the static method it contains - Justin. M
 
-                double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
+                double result = CalcEngine.CalcEngine.Calculate(operation, firstNumber, secondNumber);
 
                 // If statements and String.Format to display the results of the calculator in a readable format - Justin. M
 
-                if(operation == "add" | operation == "+")
+                if (operation == "add" | operation == "+")
                 {
                     operation = "plus";
                 }
