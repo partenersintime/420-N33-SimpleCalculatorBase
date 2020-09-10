@@ -9,4 +9,5 @@ Lab Starter Package (Lab 1)
     • Moved the CalcEngine class out of the project and made it into a usable library.
     • Added exponent function to the calculator.
     • Fixed Warning Messages.
-    • Added bullet points to README
+    • Added Welcome Message for ease of use.
+    • Added bullet points to README.
